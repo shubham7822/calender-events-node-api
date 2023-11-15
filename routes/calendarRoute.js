@@ -1,10 +1,9 @@
 const express = require("express");
-const chrono = require("chrono-node");
 const moment = require("moment")
 const calendarRoute = express.Router();
 
 
-const extractOperation = (text) => {
+const  operationToDo = (text) => {
   const contains = (str) => text.includes(str);
   const isAdd = contains("add");
   const isSubtract = contains("sub") || contains("subtract");
@@ -51,8 +50,7 @@ calendarRoute.post("/events", (req, res) => {
     value = numericValues?.[0]; 
   }
 
-  console.log(dateValues?.[0],value,"val")
-  const operation = extractOperation(text);
+  const operation = operationToDo(text);
 
 
   if (dateValues?.[0]) {
