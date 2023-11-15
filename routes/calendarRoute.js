@@ -65,10 +65,7 @@ calendarRoute.post("/events", (req, res) => {
     currentDate = moment(value,'MM-DD-YYYY')
   }
 
-
-
-  console.log(currentDate)
-  console.log(moment(currentDate, 'YY-MM-DD').add(2, 'days'))
+  
   let resultDate;
   switch (operation) {
     case 'add':
