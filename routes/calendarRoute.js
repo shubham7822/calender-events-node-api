@@ -65,7 +65,7 @@ calendarRoute.post("/events", (req, res) => {
     currentDate = moment(value,'MM-DD-YYYY')
   }
 
-  
+
   let resultDate;
   switch (operation) {
     case 'add':
@@ -88,6 +88,11 @@ calendarRoute.post("/events", (req, res) => {
       break;
     default:
       return res.status(400).json({ error: 'Invalid operation' });
+  }
+
+
+  if(!resultDate || resultDate === "Invalid Date"){
+    return res.status(400).json({ error: 'Invalid date format' });
   }
 
   res.json({
