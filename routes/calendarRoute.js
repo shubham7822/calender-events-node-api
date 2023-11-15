@@ -6,7 +6,7 @@ const calendarRoute = express.Router();
 const  operationToDo = (text) => {
   const contains = (str) => text.includes(str);
   const isAdd = contains("add");
-  const isSubtract = contains("sub") || contains("subtract");
+  const isSubtract = contains("sub") || contains("subtract") ||  contains("susbtract");
 
   if (contains("days")) {
     return isAdd ? "add" : isSubtract ? "subtract" : null;
